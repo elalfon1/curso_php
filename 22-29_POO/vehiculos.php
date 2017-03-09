@@ -24,9 +24,9 @@
 			echo "Estoy frenando<br>";
 		}
 		
-		function estableceColor($color, $nombre){
-			$this->color = $color;
-			echo "El color del coche $nombre es: ".$this->color."<br>";
+		function estableceColor($colorCoche, $nombreCoche){
+			$this->color = $colorCoche;
+			echo "El color del coche $nombreCoche es: ".$this->color."<br>";
 		}
 	}
 	
@@ -35,46 +35,28 @@
 	
 	
 	
-	class Camion{
-		var $ruedas;
-		var $color;
-		var $motor;
+	class Camion extends Coche{
 		
 		function Camion(){ //Metodo constructor
+			//parent::__construct(); //Para llamar al constructor del padre
 			//con $this llamamos al objeto de la clase
 			$this->ruedas = 8;
 			$this->color = "gris";
 			$this->motor = 2600;
 		}
 		
+		function estableceColor($colorCamion, $nombreCamion){
+			$this->color = $colorCamion;
+			echo "El color del camion $nombreCamion es: ".$this->color."<br>";
+		}
+		
 		function arrancar(){
-			echo "Estoy arrancando<br>";
-		}
-		
-		function girar(){
-			echo "Estoy girando<br>";
-		}
-		
-		function frenar(){
-			echo "Estoy frenando<br>";
+			//Como un super de toda la vida
+			parent::arrancar();
+			echo "Camión arrancado<br>";
 		}
 		
 	}
 	
-	
-	/*
-	//Instanciamos la clase llamando al constructor
-	$renault = new Coche();
-	
-	$mazda = new Coche();
-	
-	$seat = new Coche();
-
-	//$mazda->girar();
-	//echo $mazda->ruedas;
-	
-	//Le pasamos parametros al metodo
-	$renault->estableceColor("Rojo", "Renault");
-	$seat->estableceColor("Azul", "Seat");*/
 
 ?>
