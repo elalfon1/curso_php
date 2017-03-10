@@ -12,12 +12,15 @@
 			$mazda = new Coche();
 			$pegaso = new Camion();
 			
-			echo "El mazda tiene ".$mazda->ruedas." ruedas<br>";
-			echo "El pegaso tiene ".$pegaso->ruedas." ruedas<br>";
+			//$mazda->ruedas = 7;
+			
+			echo "El mazda tiene ".$mazda->getRuedas()." ruedas<br>";
+			echo "El pegaso tiene ".$pegaso->getRuedas()." ruedas<br>";
+			echo "El mazda tiene un motor de ".$mazda->getMotor()." cilindros<br>";
 			
 			$pegaso->frenar();
 			
-			$pegaso->estableceColor("amarillo","Pegaso");
+			$pegaso->setColor("amarillo","Pegaso");
 			
 			$pegaso->arrancar();
 		
