@@ -12,7 +12,7 @@
 			include_once("concesionario.php");
 			
 			//Desde fuera de la clase para acceder a elementos estaticos usamos [nombreClase]::
-			CompraVehiculo::$ayuda = 10000;
+			//CompraVehiculo::$ayuda = 10000;
 			
 			
 			$compraAntonio = new CompraVehiculo("compacto");
@@ -22,7 +22,9 @@
 
 			
 			echo "Antonio el putas se ha gastado en un coche km 0 (con 3 años, recien pintado): ".$compraAntonio->precioFinal()."€<br>";
+//==============================================================================================================================\\			
 			
+			CompraVehiculo::planPIVE(); //ponemos el atributo estatico $ayuda a 4500€
 			
 			$compraAnal = new CompraVehiculo("compacto");
 			
