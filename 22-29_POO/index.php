@@ -7,23 +7,29 @@
 
 	<body>
 		<?php 
-			include_once("vehiculos.php");
+			//session_start();
+			//$_SESSION["zeneque"] = "mizeneque";
+			include_once("concesionario.php");
 			
-			$mazda = new Coche();
-			$pegaso = new Camion();
+			//Desde fuera de la clase para acceder a elementos estaticos usamos [nombreClase]::
+			CompraVehiculo::$ayuda = 10000;
 			
-			//$mazda->ruedas = 7;
 			
-			echo "El mazda tiene ".$mazda->getRuedas()." ruedas<br>";
-			echo "El pegaso tiene ".$pegaso->getRuedas()." ruedas<br>";
-			echo "El mazda tiene un motor de ".$mazda->getMotor()." cilindros<br>";
+			$compraAntonio = new CompraVehiculo("compacto");
 			
-			$pegaso->frenar();
+			$compraAntonio->climatizador(); //incrementa el precio en 2000
+			$compraAntonio->tapiceriaCuero("blanco"); //incrementa en 3000
+
 			
-			$pegaso->setColor("amarillo","Pegaso");
+			echo "Antonio el putas se ha gastado en un coche km 0 (con 3 años, recien pintado): ".$compraAntonio->precioFinal()."€<br>";
 			
-			$pegaso->arrancar();
-		
+			
+			$compraAnal = new CompraVehiculo("compacto");
+			
+			$compraAnal->climatizador();
+			$compraAnal->tapiceriaCuero("rojo");
+			
+			echo "Ana1 (que no Anal) se ha gastado en un coche: ".$compraAnal->precioFinal()."€<br>";
 		?>
 	</body>
 </html>
