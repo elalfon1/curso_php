@@ -1,0 +1,3 @@
+AddDefaultCharset utf-8
+#Para no indexar el contenido de una carpeta
+#Options -Indexes
