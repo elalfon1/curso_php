@@ -3,15 +3,25 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Documento sin título</title>
+		<style>
+			table{
+				width: 60%;
+				border: dotted #000 1px;	
+				margin:auto;
+			}
+			td{
+				border-bottom: dotted #000 1px;
+			}
+			tr:last-child td{
+				border: none;
+			}
+		</style>
 	</head>
 
 	<body>
 		<?php 
 			
-			$dbHost		=	"localhost";
-			$dbNombre	=	"pruebas";
-			$dbUsuario	=	"root";
-			$dbContra	=	"ganon1";
+			require("datos_conexion.php");
 			
 			//´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´POR PROCEDIMIENTOS´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´\\
 			
@@ -30,22 +40,24 @@
 			
 			
 			
-			$consulta = "select * from datospersonales";
+			$consulta = "select * from productos ORDER BY CODART";
 			
 			$resultados = mysqli_query($conexion, $consulta);
 			
 			
 			//while( ($fila = mysqli_fetch_row($resultados)) == true ){ //Si hay informacion en el resultset
+			
+			echo "<table>";
 			while($fila = mysqli_fetch_row($resultados)){ //Es lo mismo
 				
-				echo $fila[0]." ";
-				echo $fila[1]." ";
-				echo $fila[2]." ";
-				echo $fila[3]." ";
-				echo "<br>";
+				echo "<tr>";
+				for($i = 0; $i < count($fila); $i++){
+					echo "<td>".$fila[$i]."</td>";
+				}
+				echo "</tr>";
 			
 			}
-			
+			echo "</table>";
 			
 		?>
 	</body>
